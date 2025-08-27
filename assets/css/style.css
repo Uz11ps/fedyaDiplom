@@ -1,0 +1,457 @@
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
+:root {
+    --primary-color: #4e73df;
+    --primary-dark: #2e59d9;
+    --secondary-color: #858796;
+    --success-color: #1cc88a;
+    --info-color: #36b9cc;
+    --warning-color: #f6c23e;
+    --danger-color: #e74a3b;
+    --light-color: #f8f9fc;
+    --dark-color: #5a5c69;
+    --body-bg: #f8f9fc;
+    --card-bg: #ffffff;
+    --animation-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--dark-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem 1rem;
+}
+
+/* ===== КОМПОНЕНТЫ НАВИГАЦИИ ===== */
+.main-header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: transform var(--animation-speed);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    transition: all var(--animation-speed);
+    border-radius: 0.25rem;
+    margin: 0 0.1rem;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 0.2s;
+}
+
+.dropdown-item {
+    padding: 0.6rem 1.5rem;
+    transition: all var(--animation-speed);
+}
+
+.dropdown-item:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.breadcrumb-container {
+    background-color: var(--light-color);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumb-item.active {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* ===== КАРТОЧКИ И КОНТЕЙНЕРЫ ===== */
+.card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    transition: transform var(--animation-speed), box-shadow var(--animation-speed);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.dashboard-card {
+    height: 100%;
+    border-left: 0.25rem solid var(--primary-color);
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.btn {
+    border-radius: 0.35rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    transition: all var(--animation-speed);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(78, 115, 223, 0.3);
+}
+
+/* ===== ФОРМЫ АВТОРИЗАЦИИ И РЕГИСТРАЦИИ ===== */
+.login-page, .register-page {
+    background: linear-gradient(135deg, var(--primary-color), var(--info-color));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-container, .register-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-form-container, .register-form-container {
+    background-color: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.company-logo {
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+.login-btn, .register-btn {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn:after, .register-btn:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    transition: all 0.5s;
+}
+
+.login-btn:hover:after, .register-btn:hover:after {
+    left: 100%;
+}
+
+.login-link, .register-link, .forgot-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--animation-speed);
+}
+
+.login-link:hover, .register-link:hover, .forgot-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+
+.input-group-text {
+    background-color: var(--light-color);
+    border: 1px solid #d1d3e2;
+}
+
+.form-control {
+    border: 1px solid #d1d3e2;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 0.35rem;
+    transition: border-color var(--animation-speed), box-shadow var(--animation-speed);
+}
+
+.form-control:focus {
+    border-color: #bac8f3;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+/* ===== АНИМАЦИИ И ЭФФЕКТЫ ===== */
+.avatar-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    transition: border var(--animation-speed);
+}
+
+.avatar-img:hover {
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.notification-bell .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 0.7rem;
+}
+
+.animated-bell:hover {
+    animation: bell-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform-origin: top center;
+}
+
+@keyframes bell-shake {
+    0% { transform: rotate(0); }
+    20% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0); }
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.welcome-section h1 {
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+.dashboard {
+    margin-bottom: 2rem;
+}
+
+/* ===== ФУТЕР ===== */
+.main-footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 3rem 0 1rem;
+    margin-top: auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-logo h4 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.footer-social {
+    margin-top: 1rem;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light-color);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    transition: all var(--animation-speed);
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    color: white;
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--animation-speed), transform var(--animation-speed);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--light-color);
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+address p {
+    margin-bottom: 0.25rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem 0.5rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .login-form-container, .register-form-container {
+        padding: 1.5rem;
+    }
+    
+    .footer-bottom .text-md-end {
+        text-align: left !important;
+        margin-top: 1rem;
+    }
+}
+
+/* ===== КЛЮЧЕВЫЕ КАДРЫ ДЛЯ АНИМАЦИЙ ===== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ УТИЛИТЫ ===== */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+/* Стили для карточек уведомлений */
+.notification-item {
+    padding: 15px;
+    border-left: 3px solid #eee;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    border-radius: 0.25rem;
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.notification-unread {
+    border-left-color: #4e73df;
+    background-color: #f0f7ff;
+}
+
+.notification-time {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.notification-actions {
+    margin-top: 10px;
+} 

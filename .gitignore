@@ -1,0 +1,44 @@
+# Конфигурационные файлы с чувствительными данными
+config/database.php
+config/database_pdo.php
+php.ini
+phpinfo.txt
+
+# Временные файлы и кэш
+*.tmp
+*.cache
+*.log
+*.bak
+*.swp
+*.swo
+*~
+
+# Загруженные файлы пользователей
+uploads/*
+!uploads/.gitkeep
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.sublime-*
+.DS_Store
+Thumbs.db
+
+# Зависимости (если будут добавлены)
+vendor/
+node_modules/
+composer.lock
+package-lock.json
+
+# Системные файлы Windows
+desktop.ini
+*.lnk
+
+# Файлы экспорта
+*.xlsx
+*.xls
+*.csv
+exports/
+
+# Временные файлы PHP
+*.php~
